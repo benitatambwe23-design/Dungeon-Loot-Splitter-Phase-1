@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="...">
+    <meta name="author" content="Benita">
+    <title>Dungeon Loot Splitter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Dungeon Loot Splitter</h1>
+</header>
+
+<main>
+
+    <!-- Party Setup -->
+    <section class="panel">
+        <h2>Party Setup</h2>
+        <label for="partySize">Number of Party Members:</label>
+        <input type="number" id="partySize" min="1">
+        <p id="partyError" class="error"></p>
+    </section>
+
+    <!-- Add Loot -->
+    <section class="panel">
+        <h2>Add Loot</h2>
+
+        <label for="lootName">Loot Name:</label>
+        <input type="text" id="lootName">
+
+        <label for="lootValue">Loot Value:</label>
+        <input type="number" id="lootValue" step="0.01">
+
+        <button id="addLootBtn">Add Loot</button>
+        <p id="lootError" class="error"></p>
+    </section>
+
+    <!-- Loot List -->
+    <section class="panel">
+        <h2>Loot List</h2>
+        <ul id="lootList"></ul>
+        <p>Total Loot: $<span id="totalLoot">0.00</span></p>
+    </section>
+
+    <!-- Split Loot -->
+    <section class="panel">
+        <h2>Split Loot</h2>
+        <button id="splitLootBtn">Split Loot</button>
+
+        <p>Total Loot: $<span id="finalTotal">0.00</span></p>
+        <p>Loot Per Party Member: $<span id="perMember">0.00</span></p>
+        <p id="splitError" class="error"></p>
+    </section>
+
+    <!-- Reflection -->
+    <section class="panel reflection">
+    <h2>Logic Explanation</h2>
+    <p>
+        This application stores loot items inside an array of objects where each object contains a name and value property. When the user adds loot, an object is pushed into the array, allowing the data to persist across button clicks.
+    </p>
+    <p>
+        A traditional for loop is used in the renderLoot function to dynamically display each loot item in the interface and to calculate the running total of all loot values. Another loop is used in the splitLoot function to compute the final total before dividing it among party members.
+    </p>
+    <p>
+        Conditional logic is used to validate user inputs such as checking for empty loot names, invalid or negative values, missing party size, and cases where no loot exists. These conditions ensure the application handles edge cases and prevents incorrect calculations.
+    </p>
+</section>
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
